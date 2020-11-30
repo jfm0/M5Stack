@@ -9,7 +9,9 @@
 #include "../M5Stack.h"
 #include <rom/rtc.h>
 #include <esp_sleep.h>
+#if CONFIG_BLUEDROID_ENABLED
 #include <esp_bt_main.h>
+#endif
 #include <esp_wifi.h>
 
 // ================ Power IC IP5306 ===================
@@ -400,8 +402,10 @@ void POWER::powerOFF(){
     esp_wifi_stop();
   }
   
+#if CONFIG_BLUEDROID_ENABLED
   //stop bt
   esp_bluedroid_disable();
+#endif
 
   //disable interrupt/peripheral
   esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL);
