@@ -34,6 +34,7 @@ typedef struct { // Data stored for FONT AS A WHOLE:
 #ifdef USE_M5_FONT_CREATOR
 	uint16_t range_num;
 	EncodeRange *range;
+    uint8_t smooth_bpp;
 #endif
 } GFXfont;
 
